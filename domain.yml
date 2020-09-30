@@ -1,0 +1,57 @@
+intents:
+# Ý đồ khách hàng
+ - greet
+ - thank
+ - bye
+ - ask_func_list
+ - ask_name
+ - singing
+ - give_name
+ - ask_lottery
+
+entities:
+ - cust_sex
+ - cust_name
+
+slots:
+  cust_sex:
+    auto_fill: true
+    type: text
+  cust_name:
+    auto_fill: true
+    type: text
+
+templates:
+# Bot trả lời
+ utter_greet:
+  - text: "Kính chào Quý khách!"
+ utter_singing:
+  - text: "Em, ngày em đánh rơi nụ cười vào anh..."
+  - text: "Liệu rằng chia tay trong em có quên được câu ca..."
+ utter_greet_with_name:
+  - text: "Kính chào {cust_sex} {cust_name}!"
+ utter_bye:
+  - text: "Kính chào tạm biệt và mong sớm gặp lại quý khách!"
+  - text: "Kính chào tạm biệt và chúc quý khách một ngày tốt lành!"
+ utter_thank:
+  - text: "Cảm ơn quý khách quá khen ah!"
+  - text: "Dạ không có gì, đó là trách nhiệm của em mà!"
+ utter_func_list:
+  - text: "Em có thể làm được rất nhiều thứ: hát, đọc thơ, đọc chuyện...nhưng giờ em chỉ chat thôi!"
+ utter_ask_name:
+  - text: "Em họ Dart, tên Bot! Người ta hay gọi em là Dart Bot thông minh xinh đẹp giỏi giang nhất vũ trụ ạ! Quý khách cần trợ giúp gì ạ?"
+  - text: "Dạ thưa. Tên Tiếng Việt của em là Trợ lý ảo Dart nhưng em thích gọi bằng tên Tiếng Anh là Dart Bot cho nó Tây!"
+ utter_unclear:
+  - text: "Thưa quý khách, hiện tại tôi chưa hiểu được yêu cầu của Quý khách. "
+actions:
+# templates (as they are reply actions),
+# also custom actions if any
+ - utter_greet
+ - utter_bye
+ - utter_unclear
+ - utter_func_list
+ - utter_thank
+ - utter_ask_name
+ - utter_singing
+ - utter_greet_with_name
+ - action_get_lottery
